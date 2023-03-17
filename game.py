@@ -10,6 +10,7 @@ objetivo de lograr la mayor cantidad de puntos en el  menor tiempo posible.
 
 """
 
+
 from random import choice, randrange
 from datetime import datetime
 
@@ -19,7 +20,7 @@ def operacion(num1 , num2 , op):     #proceso que realiza todas las operaciones
     elif (op == "-"):
         return(num1 - num2)
     elif (op == "/"):
-        try:
+        try:                        #si la division es por 0 y me tira error          
             resultadoTemp = num1 / num2
         except ZeroDivisionError:
             return 0
@@ -39,7 +40,7 @@ for i in range(0, times):              # Se eligen números y operador al azar
     print(f"{i+1}- ¿Cuánto es {number_1} {operator} {number_2}?")
     r = operacion(number_1, number_2, operator)
     result = input("Resultado: ")
-    while not result.isnumeric():
+    while not result.isnumeric():       #Si ingresa un caracter, le pido que ingrese un numero
         print('Ingresar un entero')
         result = input("resultado: ")
     if(int(result) == r):
